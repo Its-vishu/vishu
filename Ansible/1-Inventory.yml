@@ -1,0 +1,32 @@
+ Default Inventory Location:
+  /etc/ansible/hosts
+  Ansible is Agentless
+Ansible Connectivity :
+  Linux - SSH
+  WIndows - Powershell Remoting
+
+ansible_host:
+  its an inventory parameter used to specify FQDN or ip of a server.
+
+Some Inventory Parameter:
+  ansible_connection - ssh/winrm/localhost: defines how ansible connects on target server.
+  ansible_port - 22/5986:  defines which port to connect..
+  ansible_user - root/administrator : defines user to make conncetions.
+  ansible_ssh_pass - Password : defines pass for Linux.
+
+  Note:
+  Storing password in plain text is not best practice.
+  The best practice is setup SSH key-based-passwordless authentication.
+
+inventory example:
+  target1 ansible_host=192.168.44.1 ansible_ssh_password=vishu55@
+  target2 ansible_host=192.168.44.2 ansible_ssh_password=vishu55@
+
+Ping inventory:
+  ansible target1 -m ping - inventory.txt
+
+Host key Checking issue : there are 2 ways to solve this issue.
+   we can do mannual ssh and hit yes when it ask for confirmation.
+   we can disable this host key using ansible configuration file.
+
+/etc/ansible/ansible.cfg: uncomment host_key_checking=false

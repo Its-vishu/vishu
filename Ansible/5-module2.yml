@@ -1,0 +1,59 @@
+#Command Module == Execute a command on remote host
+Example1:
+-
+  name: Play1
+  hosts: localhost
+  tasks:
+    - name: Execute date commands
+      command: date
+
+    - name: Display resolv.conf contents
+      command: cat /etc/resolv.conf
+
+    - name: Display resolv.conf contents
+      command: cat /etc/resolv.conf chdir=/etc
+      #chdir = cd into dir before executing commands
+    - name: Display resolv.conf contents
+      command: cat /etc/resolv.conf creates=/folder
+      #creates = used to perform a check before the command run
+      #here its only run when folder does not exists
+
+    - name: copy file to different folder
+      copy: src=/source_file dest=/destination
+
+# Script Module == Runs a local script on a remote note after transferring it
+
+-
+  - name: Play1
+    hosts: localhost
+    tasks:
+      - name: Run a script on remote server
+        script: /some/local/script.sh -arg1 -arg2
+
+ # Service Module == Used to maintain services such as Start, Stop, Restart
+ -
+  - name: start a service in order
+    hosts: localhost
+    tasks:
+      - name: Start the database services
+        service: name=postgresql state=started
+
+      - name: 2 Way
+        service:
+          name: postgresql
+          state: started
+          #started == if service is not started => start it
+          #           if service is already started => do nothing
+
+# lineinfile Module == Search for a line in file and replace it or add it if it does not exists.
+ Example:
+-
+  - name: Add DNS server to resolv.conf
+    hosts: localhost
+    tasks:
+      - lineinfile:
+          path: /etc/resolv.conf
+          line: 'nameserver 10.1.250.10'
+
+
+ 

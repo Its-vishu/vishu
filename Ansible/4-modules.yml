@@ -1,0 +1,61 @@
+System: actions to be performed at system level such as modifying the users.
+  - User
+  - Group
+  - Hostname
+  - Iptables
+  - Lvg
+  - Lvol
+  - Make
+  - Mount
+  - Ping
+  - Timezone
+  - Systemd
+  - Service
+
+Commands: Used to execute commands or scripts on a host
+  - Command
+  - Expect
+  - Raw
+  - Script
+  - Shell
+
+Files: to work with file
+  - Acl
+  - Archive
+  - Copy
+  - File
+  - Find
+  - Lineinfile
+  - Replace
+  - Stat
+  - Template
+  - Unarchive
+
+Database: helps in working databases, to add or remove databases
+  - Mongodb
+  - Mysql
+  - Mssql
+  - Postgresql
+  - Proxysql
+  - Vertica
+
+Cloud: Vast collection for various different cloud provider. such as
+  - Amaxzon
+  - Azure
+  - GCP
+  - Docker
+  - VMware
+
+Windows: helps to use Ansible in windows environment
+  - Win_copy
+  - Win_command
+  - Win_domain
+  - Win_iis_website
+  - Win_msg
+  - Win_ping
+  - Win_path
+  - Win_robocopy
+  - Win_regedit
+  - Win_shell
+  - Win_service
+  - Win_user

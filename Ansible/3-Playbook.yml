@@ -1,0 +1,25 @@
+Playbook: -A Single YAML file
+play: Defines a set of activity (task to be run on hosts)
+task: An action to be perfomed on the host
+      Execute a command
+      Run a script
+      Install a package
+      Shutdown/Restart
+
+Modules: The different task run by tasks are called modules.
+
+Syntax to run ansible-playbook:
+  ansible-playbook < playbook name >
+
+
+DEMO - ANSIBLE PLAYBOOK:
+   ansible and ansible-playbook both requires to specify playbook in the parameter.
+
+
+# DEMO:
+---
+- name: Test connectivity to target servers
+  hosts: localhost
+  tasks:
+    - name: Ping Test
+      ping:
